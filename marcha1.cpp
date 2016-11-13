@@ -1,34 +1,39 @@
 #include<bits/stdc++.h>
-#define int long long
-#define in(a,n)  for(int i=0;i<n;i++) cin>>a[i]
-#define out(a,n)  for(int i=0;i<n;i++) cout<<a[i]<<" "
 using namespace std;
-signed main()
+int main()
 {
-      int T; cin>>T;
-      while(T--)
-      {
-            int n,m;cin>>n>>m;
-            int a[n];
-            in(a,n);
-            bool subset[m+1][n+1];
-            
-            for(int i=0;i<=n;i++)
-                subset[0][i]=true;
-            for(int i=0;i<=m;i++)
-                subset[i][0]=false;
-            for(int i=1;i<=sum;i++)
-            {
-                for(int j=1;j<=n;j++)
-                {
-                    subset[i][j]= subset[i][j-1];
-                    if(i>j-1)
-                        subset[i][j] = subset[i][j] || subset[i-a[j-1]][j-1];
-                }
-            }
-            cout<<subset[m][n];
+    int T; cin>>T;
+    while(T--)
+    {
+        int n,m,x,sum=0; cin>>n>>m;
+        list<int> a;
+        for(int i=0;i<n;i++)
+        {
+            cin>>x;
+            a.push_back(x);
+        }
+        a.sort();
+        a.reverse();
+        list<int>::iterator it = a.begin();
+        while(*it>m and a.size()!=0)
+        {
+            a.pop_front();
+            it=a.begin();
+        }
+        it = a.begin();
+        sum=*it;
+        a.pop_front();
+        for(it=a.begin();it!=a.end();++it)
+        {
+            if(sum==m)
+                break;
+            else if(sum+*it<=m)
+                sum+=*it;
+        }
+        if(sum==m)
+            cout<<"Yes\n";
+        else
+            cout<<"No\n";
 
-        
-      
-      }
+    }
 }

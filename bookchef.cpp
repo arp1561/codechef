@@ -20,7 +20,7 @@ signed main()
     {
         cin>>k>>p>>s;
         if(search(k,a,n))
-            g.insert(pair<int,string>(p,s));
+            g.insert(pair<int,string>(p,s));///////////////////
         else
             v.insert(pair<int,string>(p,s));
     }

@@ -6,11 +6,11 @@ int main()
     while(T--)
     {
         int n,m,x,sum=0; cin>>n>>m;
-        list<int> a;
-        for(int i=0;i<n;i++)
+        list<int> a(n);
+        for(list<int>::iterator it=a.begin();it!=a.end();it++)
         {
             cin>>x;
-            a.push_back(x);
+            *it=x;
         }
         a.sort();
         a.reverse();

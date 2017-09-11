@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+signed main()
+{
+    int T; cin>>T;
+    while(T--)
+    {
+        string str; cin>>str;
+		str.erase(std::unique(str.begin(), str.end()), str.end());
+		cout<<"Modeified string = "<<str;
+    	if(str.length()==1) cout<<"yes\n";
+		else		
+		{
+		    if(str.compare("CES")==true || str.compare("CS")==true || str.compare("CE")==true || str.compare("ES")==true)
+		        cout<<"yes\n";
+		    else
+		        cout<<"no\n";
+		}
+			
+	}
+	
+}
